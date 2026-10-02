@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS saep_db
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE saep_db;
+
+CREATE TABLE usuarios (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+login VARCHAR(60) NOT NULL UNIQUE,
+senha_hash CHAR(64) NOT NULL
+);
+
+CREATE TABLE tutores (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(120) NOT NULL,
+cpf_criptografado TEXT NOT NULL,
+telefone VARCHAR(20) NOT NULL,
+email VARCHAR(120) NOT NULL
+);
+
+CREATE TABLE pets (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+especie VARCHAR(50) NOT NULL,
+raca VARCHAR(80),
+data_nascimento DATE,
+tutor_id INT NOT NULL,
+FOREIGN KEY (tutor_id) REFERENCES tutores(id)
+);
+
+CREATE TABLE agendamentos (
+id INT AUTO_INCREMENT PRIMARY KEY,
+pet_id INT NOT NULL,
+data_hora DATETIME NOT NULL,
+motivo VARCHAR(255) NOT NULL,
+observacoes TEXT,
+FOREIGN KEY (pet_id) REFERENCES pets(id)
+);
