@@ -66,7 +66,6 @@ $erro = $ex->getMessage();
 if (isset($_GET['editar']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
 $id = intval($_GET['editar']);
 
-SAEP | Clínica veterinária | Material de estudo 18
 $stmt = $conn->prepare('SELECT * FROM pets WHERE id = ?');
 $stmt->bind_param('i', $id);
 $stmt->execute();

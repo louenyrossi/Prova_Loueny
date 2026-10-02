@@ -66,7 +66,6 @@ $registro = $stmt->get_result()->fetch_assoc();
 if (!$registro) { $id = 0; $erro = 'Registro não encontrado.'; }
 else {
 
-SAEP | Clínica veterinária | Material de estudo 15
 $nome = $registro['nome'];
 $cpf = descriptografar($registro['cpf_criptografado']);
 $telefone = $registro['telefone'];
