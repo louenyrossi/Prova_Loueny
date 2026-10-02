@@ -76,7 +76,7 @@ if (isset($_GET['editar']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
 $opcoes = $conn->query('SELECT p.id, p.nome, t.nome AS tutor FROM pets p INNER JOIN tutores t ON t.id =
 p.tutor_id ORDER BY p.nome');
 $listagem = $conn->query('SELECT a.*, p.nome AS pet, p.especie, p.raca,
-p.data_nascimento, p.tutor_id, t.nome AS tutor, t.cpf_criptografado,]
+p.data_nascimento, p.tutor_id, t.nome AS tutor, t.cpf_criptografado,
 t.telefone, t.email FROM agendamentos a
 INNER JOIN pets p ON p.id = a.pet_id
 INNER JOIN tutores t ON t.id = p.tutor_id ORDER BY a.data_hora ASC, a.id ASC');
